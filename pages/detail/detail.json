@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "spec-picker": "../../components/spec-picker/spec-picker"
+  },
+  "navigationBarTitleText": "菜品详情"
+}

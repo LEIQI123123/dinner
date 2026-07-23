@@ -1,0 +1,11 @@
+<view wx:if="{{visible}}" class="cart-bar safe-bottom">
+  <view class="cart-icon" bindtap="onCart">
+    <text class="emoji">🛒</text>
+    <view wx:if="{{count > 0}}" class="badge">{{count > 99 ? '99+' : count}}</view>
+  </view>
+  <view class="cart-total">
+    <text class="price">¥{{total}}</text>
+    <text class="tip muted">另需配送费</text>
+  </view>
+  <view class="checkout btn-primary" bindtap="onCheckout">去结算</view>
+</view>

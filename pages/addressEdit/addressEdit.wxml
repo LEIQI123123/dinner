@@ -1,0 +1,33 @@
+<view class="page-pad edit">
+  <view class="card form">
+    <view class="form-row">
+      <text class="label">收货人</text>
+      <input class="input" placeholder="如：小暖" value="{{name}}" bindinput="onName" />
+    </view>
+    <view class="divider"></view>
+    <view class="form-row">
+      <text class="label">手机号</text>
+      <input class="input" placeholder="11 位手机号" type="number" maxlength="11" value="{{phone}}" bindinput="onPhone" />
+    </view>
+    <view class="divider"></view>
+    <view class="form-row col">
+      <text class="label">地址标签</text>
+      <view class="tags-pick">
+        <view
+          wx:for="{{tags}}"
+          wx:key="*this"
+          class="tchip {{tag === item ? 'on' : ''}}"
+          data-tag="{{item}}"
+          bindtap="pickTag"
+        >{{item}}</view>
+      </view>
+    </view>
+    <view class="divider"></view>
+    <view class="form-row col">
+      <text class="label">详细地址</text>
+      <textarea class="textarea" placeholder="小区 / 楼栋 / 门牌号" value="{{address}}" bindinput="onAddress" />
+    </view>
+  </view>
+
+  <view class="save-btn safe-bottom btn-primary" bindtap="save">{{isEdit ? '保存修改' : '保存地址'}}</view>
+</view>

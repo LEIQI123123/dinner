@@ -1,0 +1,60 @@
+<scroll-view scroll-y class="page-pad home">
+  <!-- 顶部 hero -->
+  <view class="hero">
+    <text class="hero-deco">🍱</text>
+    <view class="hero-text">
+      <view class="hero-title">暖暖点餐</view>
+      <view class="hero-sub">今天吃点啥呀 ~ 🧸</view>
+    </view>
+    <view class="hero-avatar" bindtap="goManage">⚙️</view>
+  </view>
+
+  <!-- 分类快捷入口 -->
+  <scroll-view scroll-x class="cats" show-scrollbar="{{false}}">
+    <view class="cat-chip" wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="goCategory">
+      <text class="cat-emoji">{{item.icon}}</text>
+      <text class="cat-label">{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <promo-banner banners="{{banners}}" />
+
+  <!-- 店长推荐：横向滑动 -->
+  <view class="section">
+    <view class="sec-head">
+      <text class="sec-title">🌟 店长推荐</text>
+      <text class="sec-more" bindtap="goMenu">全部 ›</text>
+    </view>
+    <scroll-view scroll-x class="reco-scroll" show-scrollbar="{{false}}">
+      <view class="reco-card" wx:for="{{recommend}}" wx:key="id">
+        <dish-card
+          dish="{{item}}"
+          mode="grid"
+          bind:select="goDetail"
+        />
+      </view>
+      <view class="reco-gap"></view>
+    </scroll-view>
+  </view>
+
+  <!-- 人气热销 -->
+  <view class="section">
+    <view class="sec-head">
+      <text class="sec-title">🔥 人气热销</text>
+      <text class="sec-more" bindtap="goMenu">全部 ›</text>
+    </view>
+    <view class="grid">
+      <dish-card
+        wx:for="{{hot}}"
+        wx:key="id"
+        dish="{{item}}"
+        mode="grid"
+        bind:select="goDetail"
+      />
+    </view>
+  </view>
+
+  <view class="bottom-hint muted">—— 更多美味，去菜单页逛逛 ——</view>
+</scroll-view>
+
+<cart-bar visible="{{cartVisible}}" count="{{cartCount}}" total="{{cartTotal}}" />

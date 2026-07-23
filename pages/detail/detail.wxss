@@ -1,0 +1,128 @@
+.detail {
+  height: calc(100vh - 110rpx - env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+.hero {
+  height: 360rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(255, 126, 95, 0.18);
+}
+.hero-emoji {
+  font-size: 180rpx;
+}
+.hero.img {
+  padding: 0;
+  display: block;
+}
+.info-card {
+  margin-top: 20rpx;
+}
+.info-card .name {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.info-card .tags {
+  margin-top: 12rpx;
+}
+.info-card .tags .tag {
+  margin-right: 8rpx;
+}
+.info-card .meta {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+}
+.info-card .meta .rating {
+  color: #FF9A3C;
+  margin-left: 16rpx;
+}
+.price-row {
+  margin-top: 14rpx;
+  display: flex;
+  align-items: baseline;
+}
+.price-row .price {
+  font-size: 44rpx;
+  color: #FF5A3C;
+  font-weight: 700;
+}
+.price-row .oprice {
+  font-size: 24rpx;
+  color: #A89684;
+  text-decoration: line-through;
+  margin-left: 12rpx;
+}
+.desc-card {
+  margin-top: 20rpx;
+}
+.card-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-bottom: 12rpx;
+}
+.desc {
+  font-size: 26rpx;
+  color: #6b5b50;
+  line-height: 1.7;
+}
+.spec-preview {
+  margin-top: 20rpx;
+}
+.preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8rpx;
+}
+.preview-row .arrow {
+  font-size: 40rpx;
+  color: #A89684;
+}
+.detail-bar {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 0;
+  padding-bottom: calc(env(safe-area-inset-bottom));
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  box-shadow: 0 -4rpx 16rpx rgba(255, 126, 95, 0.12);
+  z-index: 90;
+}
+.bar-cart {
+  position: relative;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: #FFF3E9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+}
+.bar-cart .emoji {
+  font-size: 40rpx;
+}
+.bar-cart .badge {
+  position: absolute;
+  top: -6rpx; right: -6rpx;
+  min-width: 30rpx; height: 30rpx;
+  padding: 0 6rpx;
+  border-radius: 15rpx;
+  background: #FF6B6B;
+  color: #fff;
+  font-size: 18rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+.bar-btn {
+  flex: 1;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 30rpx;
+}

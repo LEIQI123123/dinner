@@ -1,0 +1,85 @@
+<view class="edit">
+  <!-- 图片 -->
+  <view class="card">
+    <view class="field-label">🖼️ 菜品图片</view>
+    <view class="img-row">
+      <view wx:if="{{!image}}" class="img-box placeholder" bindtap="chooseImage">
+        <text class="plus">＋</text>
+        <text class="plus-tip">上传图片</text>
+      </view>
+      <view wx:else class="img-box">
+        <image class="preview" src="{{image}}" mode="aspectFill" />
+        <view class="img-mask">
+          <text class="op" bindtap="chooseImage">更换</text>
+          <text class="op del" bindtap="removeImage">移除</text>
+        </view>
+      </view>
+      <view class="img-hint">不上传则使用 emoji + 渐变背景</view>
+    </view>
+  </view>
+
+  <!-- 基础信息 -->
+  <view class="card">
+    <view class="field">
+      <text class="field-label">名称</text>
+      <input class="input" placeholder="如：招牌红烧肉" value="{{name}}" bindinput="onName" maxlength="20" />
+    </view>
+    <view class="field">
+      <text class="field-label">分类</text>
+      <picker class="picker" mode="selector" range="{{categories}}" range-key="name" value="{{catIndex}}" bindchange="onCatChange">
+        <view class="picker-text">{{categories[catIndex].name}} ›</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="field-label">价格(元)</text>
+      <input class="input" type="digit" placeholder="0" value="{{price}}" bindinput="onPrice" />
+    </view>
+    <view class="field">
+      <text class="field-label">原价(选填)</text>
+      <input class="input" type="digit" placeholder="划线价" value="{{originalPrice}}" bindinput="onOriginal" />
+    </view>
+    <view class="field col">
+      <text class="field-label">简介</text>
+      <textarea class="textarea" placeholder="一句话描述这道菜" value="{{desc}}" bindinput="onDesc" maxlength="60" />
+    </view>
+    <view class="field col">
+      <text class="field-label">标签(逗号分隔)</text>
+      <input class="input" placeholder="招牌，人气" value="{{tags}}" bindinput="onTags" />
+    </view>
+  </view>
+
+  <!-- 图标 -->
+  <view class="card">
+    <view class="field-label">🍱 图标 emoji</view>
+    <input class="input emoji-input" placeholder="🍽️" value="{{emoji}}" bindinput="onEmojiInput" maxlength="4" />
+    <view class="emoji-grid">
+      <text wx:for="{{emojis}}" wx:key="*this" class="emoji-cell {{emoji === item ? 'on' : ''}}" data-e="{{item}}" bindtap="pickEmoji">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 配色 -->
+  <view class="card">
+    <view class="field-label">🎨 卡片配色</view>
+    <view class="grad-row">
+      <view wx:for="{{grads}}" wx:key="*this" class="grad-swatch {{gradIndex === index ? 'on' : ''}}" style="background: linear-gradient(135deg, {{item[0]}}, {{item[1]}});" data-i="{{index}}" bindtap="pickGrad" />
+    </view>
+  </view>
+
+  <!-- 开关 -->
+  <view class="card">
+    <view class="switch-row">
+      <text>🌶️ 支持辣度选择</text>
+      <switch checked="{{supportSpicy}}" color="#FF7E5F" bindchange="toggleSpicy" />
+    </view>
+    <view class="switch-row">
+      <text>🍽️ 支持份量选择</text>
+      <switch checked="{{supportPortion}}" color="#FF7E5F" bindchange="togglePortion" />
+    </view>
+    <view class="switch-row">
+      <text>⭐ 设为店长推荐</text>
+      <switch checked="{{recommend}}" color="#FF7E5F" bindchange="toggleRecommend" />
+    </view>
+  </view>
+
+  <view class="save-btn btn-primary" bindtap="save">保存菜品</view>
+</view>

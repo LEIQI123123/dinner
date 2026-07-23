@@ -1,0 +1,4 @@
+<view class="empty">
+  <text class="e-emoji">{{emoji}}</text>
+  <text class="e-text muted">{{text}}</text>
+</view>

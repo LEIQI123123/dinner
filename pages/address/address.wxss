@@ -1,0 +1,66 @@
+.addr-item {
+  margin-bottom: 20rpx;
+}
+.addr-top {
+  margin-bottom: 12rpx;
+}
+.who .name {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-right: 14rpx;
+}
+.who .phone {
+  font-size: 26rpx;
+  color: #6b5b50;
+  margin-right: 12rpx;
+}
+.who .tag {
+  margin-right: 8rpx;
+}
+.tag-plain {
+  background: rgba(168, 150, 132, 0.18);
+  color: #A89684;
+}
+.ops .op {
+  font-size: 34rpx;
+  margin-left: 24rpx;
+}
+.addr-text {
+  font-size: 26rpx;
+  color: #6b5b50;
+  line-height: 1.5;
+}
+.set-default {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: #FF7E5F;
+}
+.addr-foot {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  gap: 16rpx;
+  padding: 16rpx 24rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -4rpx 16rpx rgba(255, 126, 95, 0.1);
+  z-index: 90;
+}
+.add-btn,
+.use-btn {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  flex: 1;
+}
+.add-btn {
+  background: #FFF3E9;
+  color: #FF7E5F;
+}
+.use-btn {
+  background: linear-gradient(135deg, #FFB088, #FF7E5F);
+  color: #fff;
+}

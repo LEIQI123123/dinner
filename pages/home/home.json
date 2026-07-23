@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "promo-banner": "../../components/promo-banner/promo-banner",
+    "dish-card": "../../components/dish-card/dish-card",
+    "cart-bar": "../../components/cart-bar/cart-bar"
+  },
+  "navigationBarTitleText": "暖暖点餐"
+}

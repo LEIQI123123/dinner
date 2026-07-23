@@ -1,0 +1,31 @@
+<view class="manage">
+  <view class="top-bar">
+    <view class="hint">数据保存在本机，刷新不丢 · 共 {{groups.length}} 类</view>
+    <view class="add-btn btn-primary" bindtap="goAdd">＋ 新增菜品</view>
+  </view>
+
+  <view class="group" wx:for="{{groups}}" wx:key="id">
+    <view class="group-title">{{item.icon}} {{item.name}}（{{item.dishes.length}}）</view>
+    <view class="row" wx:for="{{item.dishes}}" wx:for-item="d" wx:key="id" bindtap="goEdit" data-id="{{d.id}}">
+      <view wx:if="{{!d.image}}" class="r-thumb" style="background: linear-gradient(135deg, {{d.grad[0]}}, {{d.grad[1]}});">
+        <text class="r-emoji">{{d.emoji}}</text>
+      </view>
+      <image wx:else class="r-thumb" src="{{d.image}}" mode="aspectFill" />
+      <view class="r-info">
+        <view class="r-name">{{d.name}}</view>
+        <view class="r-meta">
+          <text class="r-price">¥{{d.price}}</text>
+          <text class="r-tag" wx:if="{{d.recommend}}">推荐</text>
+          <text class="r-tag dim" wx:if="{{d.supportSpicy}}">可辣</text>
+          <text class="r-tag dim" wx:if="{{d.supportPortion}}">份量</text>
+        </view>
+      </view>
+      <view class="r-ops">
+        <text class="op edit" catchtap="goEdit" data-id="{{d.id}}">编辑</text>
+        <text class="op del" catchtap="onDelete" data-id="{{d.id}}" data-name="{{d.name}}">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{groups.length === 0}}" class="empty-tip">还没有菜品，点右上角「新增菜品」开始吧~</view>
+</view>

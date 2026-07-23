@@ -1,0 +1,20 @@
+<view class="dish-card card mode-{{mode}}" bindtap="onTap">
+  <view wx:if="{{!dish.image}}" class="thumb" style="background: linear-gradient(135deg, {{dish.grad[0]}}, {{dish.grad[1]}});">
+    <text class="emoji">{{dish.emoji}}</text>
+  </view>
+  <image wx:else class="thumb img" src="{{dish.image}}" mode="aspectFill" />
+  <view class="info">
+    <view class="name ellipsis">{{dish.name}}</view>
+    <view class="tags" wx:if="{{dish.tags.length}}">
+      <text class="tag" wx:for="{{dish.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="meta">
+      <text class="muted sales">月售 {{dish.sales}}</text>
+      <text class="rating">★ {{dish.rating}}</text>
+    </view>
+    <view class="bottom">
+      <text class="price">¥{{dish.price}}</text>
+      <text class="oprice" wx:if="{{dish.originalPrice > dish.price}}">¥{{dish.originalPrice}}</text>
+    </view>
+  </view>
+</view>

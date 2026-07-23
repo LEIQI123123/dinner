@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "dish-card": "../../components/dish-card/dish-card",
+    "cart-bar": "../../components/cart-bar/cart-bar"
+  },
+  "navigationBarTitleText": "菜单"
+}

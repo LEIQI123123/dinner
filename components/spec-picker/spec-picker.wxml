@@ -1,0 +1,52 @@
+<view wx:if="{{show}}" class="spec-mask" bindtap="onMask">
+  <view class="spec-sheet" catchtap="noop">
+    <view class="spec-head">
+      <view wx:if="{{!dish.image}}" class="thumb" style="background: linear-gradient(135deg, {{dish.grad[0]}}, {{dish.grad[1]}});">
+        <text class="emoji">{{dish.emoji}}</text>
+      </view>
+      <image wx:else class="thumb img" src="{{dish.image}}" mode="aspectFill" />
+      <view class="head-info">
+        <view class="name">{{dish.name}}</view>
+        <view class="price">¥{{unitPrice}}</view>
+      </view>
+      <view class="close" bindtap="onClose">✕</view>
+    </view>
+
+    <view class="spec-block" wx:if="{{dish.supportSpicy}}">
+      <view class="spec-title">🌶️ 辣度</view>
+      <view class="chips">
+        <view
+          wx:for="{{spicyOptions}}"
+          wx:key="level"
+          class="chip {{spicy === item.level ? 'on' : ''}}"
+          data-type="spicy"
+          data-level="{{item.level}}"
+          bindtap="onPick"
+        >{{item.emoji}} {{item.label}}</view>
+      </view>
+    </view>
+
+    <view class="spec-block" wx:if="{{dish.supportPortion}}">
+      <view class="spec-title">🍽️ 份量</view>
+      <view class="chips">
+        <view
+          wx:for="{{portionOptions}}"
+          wx:key="code"
+          class="chip {{portion === item.code ? 'on' : ''}}"
+          data-type="portion"
+          data-code="{{item.code}}"
+          bindtap="onPick"
+        >{{item.label}}</view>
+      </view>
+    </view>
+
+    <view class="spec-block row-between">
+      <view class="spec-title">数量</view>
+      <stepper value="{{quantity}}" bind:change="onQty"/>
+    </view>
+
+    <view class="spec-foot safe-bottom">
+      <view class="confirm btn-primary" bindtap="onConfirm">加入购物车 · ¥{{totalPrice}}</view>
+    </view>
+  </view>
+</view>

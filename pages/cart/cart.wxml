@@ -1,0 +1,49 @@
+<view class="page-pad cart" wx:if="{{!empty}}">
+  <view class="cart-head row-between">
+    <view class="title">🛒 购物车（{{cart.length}}）</view>
+    <view class="clear" bindtap="clearAll">清空</view>
+  </view>
+
+  <view class="card item" wx:for="{{cart}}" wx:key="key">
+    <view wx:if="{{!item.image}}" class="item-thumb" style="background: linear-gradient(135deg, {{item.grad[0]}}, {{item.grad[1]}});">
+      <text class="emoji">{{item.emoji}}</text>
+    </view>
+    <image wx:else class="item-thumb img" src="{{item.image}}" mode="aspectFill" />
+    <view class="item-info">
+      <view class="name ellipsis">{{item.name}}</view>
+      <view class="spec muted" wx:if="{{item.supportSpicy || item.supportPortion}}">
+        <text wx:if="{{item.supportSpicy}}">{{item.spicyLevel === 0 ? '不辣' : (item.spicyLevel === 1 ? '微辣' : (item.spicyLevel === 2 ? '中辣' : '特辣'))}}</text>
+        <text wx:if="{{item.supportPortion}}"> · {{item.portion === 'small' ? '小份' : (item.portion === 'medium' ? '中份' : '大份')}}</text>
+      </view>
+      <view class="item-bottom row-between">
+        <text class="price">¥{{item.unitPrice}}</text>
+        <view class="row">
+          <stepper value="{{item.quantity}}" data-key="{{item.key}}" bind:change="onQty" />
+          <text class="del" catchtap="removeItem" data-key="{{item.key}}">🗑️</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card summary">
+    <view class="row-between"><text class="muted">商品小计</text><text>¥{{subtotal}}</text></view>
+    <view class="row-between" wx:if="{{discount > 0}}"><text class="muted">优惠减免</text><text class="price">-¥{{discount}}</text></view>
+    <view class="row-between"><text class="muted">配送费</text><text>{{deliveryFee === 0 ? '免配送费 🚚' : '¥' + deliveryFee}}</text></view>
+    <view class="divider"></view>
+    <view class="row-between total-row">
+      <text>合计</text>
+      <text class="price big">¥{{total}}</text>
+    </view>
+    <view wx:if="{{tip}}" class="tip-line">
+      <text wx:if="{{tip.freeTip}}">再买 ¥{{tip.needPay}} 即可免配送费 🚚</text>
+      <text wx:else>再买 ¥{{tip.needPay}} 可减 ¥{{tip.nextReduce}} 🎁</text>
+    </view>
+  </view>
+</view>
+
+<empty wx:else emoji="🛒" text="购物车还是空的，去挑点好吃的吧~" />
+
+<view wx:if="{{!empty}}" class="cart-foot safe-bottom" bindtap="goCheckout">
+  <text class="price big">¥{{total}}</text>
+  <view class="checkout-btn btn-primary">去结算（{{cart.length}}）</view>
+</view>

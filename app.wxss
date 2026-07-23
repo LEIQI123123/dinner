@@ -1,0 +1,67 @@
+/* ===== 全局配色变量（暖色调萌系） ===== */
+page {
+  --primary: #FF7E5F;
+  --primary-light: #FFB088;
+  --primary-dark: #F2633F;
+  --accent: #FFD54F;
+  --bg: #FFF8F0;
+  --card-bg: #FFFFFF;
+  --text-main: #4A3B32;
+  --text-sub: #A89684;
+  --danger: #FF6B6B;
+  --success: #6BCB77;
+  --price: #FF5A3C;
+
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+view, text, scroll-view, image, button { box-sizing: border-box; }
+
+/* ===== 通用组件类 ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: 24rpx;
+  padding: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(255, 126, 95, 0.12);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: #fff;
+  border-radius: 999rpx;
+  font-weight: 600;
+  border: none;
+  transition: all .2s ease;
+}
+.btn-primary:active { transform: scale(0.96); background: var(--primary-dark); }
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 2rpx solid var(--primary);
+  border-radius: 999rpx;
+  font-weight: 600;
+  transition: all .2s ease;
+}
+.btn-ghost:active { transform: scale(0.96); background: rgba(255, 126, 95, 0.08); }
+.tag {
+  display: inline-block;
+  padding: 2rpx 14rpx;
+  border-radius: 12rpx;
+  font-size: 20rpx;
+  color: var(--primary);
+  background: rgba(255, 126, 95, 0.12);
+}
+.price { color: var(--price); font-weight: 700; }
+.muted { color: var(--text-sub); }
+.divider { height: 1rpx; background: rgba(168, 150, 132, 0.15); margin: 20rpx 0; }
+.safe-bottom { padding-bottom: calc(16rpx + env(safe-area-inset-bottom)); }
+
+/* 通用布局工具 */
+.row { display: flex; align-items: center; }
+.row-between { display: flex; align-items: center; justify-content: space-between; }
+.col { display: flex; flex-direction: column; }
+.page-pad { padding: 24rpx; padding-bottom: 180rpx; }
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

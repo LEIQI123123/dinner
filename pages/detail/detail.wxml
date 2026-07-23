@@ -1,0 +1,49 @@
+<scroll-view scroll-y class="page-pad detail" wx:if="{{dish}}">
+  <view wx:if="{{!dish.image}}" class="hero" style="background: linear-gradient(135deg, {{dish.grad[0]}}, {{dish.grad[1]}});">
+    <text class="hero-emoji">{{dish.emoji}}</text>
+  </view>
+  <image wx:else class="hero img" src="{{dish.image}}" mode="aspectFill" />
+
+  <view class="card info-card">
+    <view class="name">{{dish.name}}</view>
+    <view class="tags">
+      <text class="tag" wx:for="{{dish.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="meta">
+      <text class="muted">月售 {{dish.sales}}</text>
+      <text class="rating">★ {{dish.rating}}</text>
+    </view>
+    <view class="price-row">
+      <text class="price">¥{{dish.price}}</text>
+      <text class="oprice" wx:if="{{dish.originalPrice > dish.price}}">¥{{dish.originalPrice}}</text>
+    </view>
+  </view>
+
+  <view class="card desc-card">
+    <view class="card-title">📝 菜品简介</view>
+    <view class="desc">{{dish.desc}}</view>
+  </view>
+
+  <view class="card spec-preview" bindtap="openSpec">
+    <view class="card-title">⚙️ 选择规格</view>
+    <view class="preview-row">
+      <text class="muted">辣度 / 份量 可自定义</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+</scroll-view>
+
+<spec-picker
+  show="{{specShow}}"
+  dish="{{specDish}}"
+  bind:close="closeSpec"
+  bind:confirm="onConfirm"
+/>
+
+<view class="detail-bar safe-bottom">
+  <view class="bar-cart" bindtap="goCart">
+    <text class="emoji">🛒</text>
+    <view wx:if="{{cartCount > 0}}" class="badge">{{cartCount > 99 ? '99+' : cartCount}}</view>
+  </view>
+  <view class="bar-btn btn-primary" bindtap="openSpec">加入购物车</view>
+</view>

@@ -1,0 +1,20 @@
+<swiper
+  wx:if="{{banners.length}}"
+  class="banner"
+  indicator-dots
+  autoplay
+  circular
+  interval="3500"
+  indicator-active-color="#FF7E5F"
+  indicator-color="rgba(255,255,255,0.6)"
+>
+  <swiper-item wx:for="{{banners}}" wx:key="id">
+    <view class="banner-item" style="background: linear-gradient(135deg, {{item.grad[0]}}, {{item.grad[1]}});">
+      <text class="b-emoji">{{item.emoji}}</text>
+      <view class="b-text">
+        <view class="b-title">{{item.title}}</view>
+        <view class="b-sub">{{item.sub}}</view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

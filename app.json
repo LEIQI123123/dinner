@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/menu/menu",
+    "pages/detail/detail",
+    "pages/cart/cart",
+    "pages/checkout/checkout",
+    "pages/address/address",
+    "pages/addressEdit/addressEdit",
+    "pages/success/success",
+    "pages/manage/manage",
+    "pages/dishEdit/dishEdit"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FF7E5F",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "暖暖点餐",
+    "backgroundColor": "#FFF8F0",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#A89684",
+    "selectedColor": "#FF7E5F",
+    "list": [
+      { "pagePath": "pages/home/home", "text": "首页" },
+      { "pagePath": "pages/menu/menu", "text": "菜单" },
+      { "pagePath": "pages/cart/cart", "text": "购物车" }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

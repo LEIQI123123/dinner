@@ -1,0 +1,57 @@
+<view class="page-pad checkout" wx:if="{{!empty}}">
+  <view class="card addr-card" bindtap="chooseAddr">
+    <block wx:if="{{address}}">
+      <view class="addr-top row-between">
+        <view class="who">
+          <text class="name">{{address.name}}</text>
+          <text class="phone">{{address.phone}}</text>
+          <text wx:if="{{address.isDefault}}" class="tag">默认</text>
+        </view>
+        <text class="arrow">›</text>
+      </view>
+      <view class="addr-text">{{address.address}}</view>
+    </block>
+    <view wx:else class="no-addr">＋ 请选择收货地址</view>
+  </view>
+
+  <view class="card goods">
+    <view class="card-title">🍽️ 商品清单</view>
+    <view class="g-item" wx:for="{{cart}}" wx:key="key">
+      <view wx:if="{{!item.image}}" class="g-thumb" style="background: linear-gradient(135deg, {{item.grad[0]}}, {{item.grad[1]}});">
+        <text class="g-emoji">{{item.emoji}}</text>
+      </view>
+      <image wx:else class="g-thumb img" src="{{item.image}}" mode="aspectFill" />
+      <view class="g-info">
+        <view class="name">{{item.name}}</view>
+        <view class="spec muted" wx:if="{{item.supportSpicy || item.supportPortion}}">
+          <text wx:if="{{item.supportSpicy}}">{{item.spicyLevel === 0 ? '不辣' : (item.spicyLevel === 1 ? '微辣' : (item.spicyLevel === 2 ? '中辣' : '特辣'))}}</text>
+          <text wx:if="{{item.supportPortion}}"> · {{item.portion === 'small' ? '小份' : (item.portion === 'medium' ? '中份' : '大份')}}</text>
+        </view>
+      </view>
+      <view class="g-right">
+        <text class="price">¥{{item.unitPrice}}</text>
+        <text class="qx">×{{item.quantity}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card remark-card">
+    <view class="card-title">📝 备注</view>
+    <textarea class="remark" placeholder="口味、餐具等要求（选填）" value="{{remark}}" bindinput="onRemark" />
+  </view>
+
+  <view class="card summary">
+    <view class="row-between"><text class="muted">商品小计</text><text>¥{{subtotal}}</text></view>
+    <view class="row-between" wx:if="{{discount > 0}}"><text class="muted">优惠减免</text><text class="price">-¥{{discount}}</text></view>
+    <view class="row-between"><text class="muted">配送费</text><text>{{deliveryFee === 0 ? '免配送费' : '¥' + deliveryFee}}</text></view>
+    <view class="divider"></view>
+    <view class="row-between total-row"><text>合计</text><text class="price big">¥{{total}}</text></view>
+  </view>
+</view>
+
+<empty wx:else emoji="🧾" text="购物车空空，先去加点菜~" />
+
+<view wx:if="{{!empty}}" class="co-foot" bindtap="submit">
+  <text class="price big">¥{{total}}</text>
+  <view class="submit-btn btn-primary">提交订单</view>
+</view>

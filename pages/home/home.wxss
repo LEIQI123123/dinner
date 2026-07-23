@@ -1,0 +1,117 @@
+.home {
+  height: calc(100vh - 110rpx - env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+
+/* 顶部 hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28rpx;
+  padding: 40rpx 36rpx;
+  background: linear-gradient(135deg, #FF9A8B 0%, #FF7E5F 55%, #FFB76B 100%);
+  box-shadow: 0 10rpx 30rpx rgba(255, 126, 95, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-deco {
+  position: absolute;
+  right: -20rpx;
+  bottom: -40rpx;
+  font-size: 200rpx;
+  opacity: 0.18;
+}
+.hero-text { position: relative; z-index: 2; }
+.hero-title {
+  font-size: 44rpx;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2rpx;
+}
+.hero-sub {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.92);
+}
+.hero-avatar {
+  position: relative;
+  z-index: 2;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38rpx;
+}
+
+/* 分类快捷入口 */
+.cats {
+  white-space: nowrap;
+  margin-top: 28rpx;
+}
+.cat-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 132rpx;
+  padding: 18rpx 0;
+  margin-right: 16rpx;
+  background: #fff;
+  border-radius: 22rpx;
+  box-shadow: 0 4rpx 14rpx rgba(255, 126, 95, 0.08);
+}
+.cat-emoji { font-size: 46rpx; }
+.cat-label {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #6b5b50;
+}
+
+.section { margin-top: 36rpx; }
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+}
+.sec-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #4A3B32;
+}
+.sec-more {
+  font-size: 24rpx;
+  color: #FF9A3C;
+}
+
+/* 推荐横滑 */
+.reco-scroll {
+  white-space: nowrap;
+}
+.reco-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 300rpx;
+  margin-right: 20rpx;
+}
+.reco-gap { display: inline-block; width: 4rpx; }
+
+/* 热销网格 */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+.grid .dish-card {
+  width: calc(50% - 10rpx);
+  margin-bottom: 0;
+}
+
+.bottom-hint {
+  text-align: center;
+  margin-top: 40rpx;
+  font-size: 24rpx;
+}
