@@ -82,16 +82,6 @@ dinner/
   - 满 ¥88 减 ¥20
 - 满 ¥30 免配送费（否则 ¥5）
 
-## 📝 开发与提交
 
-```powershell
-# 本地改动后
-cd E:\dinner
-git add -A
-git commit -m "改动说明"
-git push
-```
-
----
 
 仓库地址：https://github.com/LEIQI123123/dinner
